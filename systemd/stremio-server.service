@@ -1,0 +1,17 @@
+[Unit]
+Description=Stremio Media Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment=PATH=/home/__USER__/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/home/__USER__/Stremio-RaspberryPi/src/server-launcher.sh
+
+WorkingDirectory=/home/__USER__/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=__USER__
+
+[Install]
+WantedBy=multi-user.target

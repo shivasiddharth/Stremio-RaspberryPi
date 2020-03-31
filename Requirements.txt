@@ -1,0 +1,8 @@
+qtcreator
+qt5-qmake
+qt5-default
+g++
+pkgconf
+libssl-dev
+libmpv-dev
+nodejs
