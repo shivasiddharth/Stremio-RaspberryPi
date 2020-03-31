@@ -18,12 +18,12 @@ sudo /home/${USER}/Stremio-RaspberryPi/scripts/installer.sh
 ###  After the installation, try opening the Stremio server and client manually using the following   
 Open first terminal and run    
 ```   
-sudo /home/${USER}/Stremio-RaspberryPi/src/server-launcher.sh  
+/home/${USER}/Stremio-RaspberryPi/src/server-launcher.sh  
 ```    
      
 Open second terminal and run   
 ```   
-sudo /home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh  
+/home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh  
 ```    
 
 ###  After verification if desired, set Stremio to auto start on boot   
