@@ -1,7 +1,8 @@
 [Unit]
 Description=Stremio Media Client
-Wants=network-online.target, stremio-server
-After=network-online.target, stremio-server
+PartOf=graphical-session.target
+Wants=network-online.target, stremio-server, graphical.target
+After=network-online.target, stremio-server, graphical.target
 
 [Service]
 Environment=PATH=/home/__USER__/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
