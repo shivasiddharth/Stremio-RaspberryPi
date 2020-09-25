@@ -5,7 +5,8 @@ Wants=network-online.target, stremio-server, graphical.target
 After=network-online.target, stremio-server, graphical.target
 
 [Service]
-Environment=PATH=/home/__USER__/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/__USER__/.Xauthority
 ExecStart=/home/__USER__/Stremio-RaspberryPi/src/client-launcher.sh
 
 WorkingDirectory=/home/__USER__/
@@ -15,4 +16,4 @@ Restart=always
 User=__USER__
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
