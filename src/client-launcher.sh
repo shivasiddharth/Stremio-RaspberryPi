@@ -6,4 +6,4 @@
 
 
 # Run Chromium and open tabs
-/usr/bin/chromium-browser --kiosk --window-position=0,0 https://app.strem.io 
+/usr/bin/chromium-browser --kiosk --window-position=0,0 https://app.strem.io/shell-v4.4/
