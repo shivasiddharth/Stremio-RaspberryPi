@@ -1,7 +1,7 @@
 [Unit]
 Description=Stremio Media Client
 PartOf=graphical-session.target
-Wants=network-online.target, stremio-server, graphical.target
+Requires=network-online.target, stremio-server, graphical.target
 After=network-online.target, stremio-server, graphical.target
 
 [Service]
