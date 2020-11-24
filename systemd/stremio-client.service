@@ -1,8 +1,8 @@
 [Unit]
 Description=Stremio Media Client
 PartOf=graphical-session.target
-Wants=network-online.target, graphical.target
-After=network-online.target, graphical.target
+Wants=network-online.target, stremio-server, graphical.target
+After=network-online.target, stremio-server, graphical.target
 
 [Service]
 Environment=DISPLAY=:0.0
