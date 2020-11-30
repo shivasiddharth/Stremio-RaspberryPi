@@ -12,7 +12,7 @@ ExecStart=/home/__USER__/Stremio-RaspberryPi/src/client-launcher.sh
 WorkingDirectory=/home/__USER__/
 StandardOutput=inherit
 StandardError=inherit
-Restart=always
+Restart=on-failure
 User=__USER__
 
 [Install]
