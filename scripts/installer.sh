@@ -4,6 +4,8 @@
 #
 # Written by https://github.com/shivasiddharth
 
+echo ""
+echo ""
 echo "Get your popcorn while we prep your Pi......"
 echo ""
 set -o errexit
@@ -33,5 +35,12 @@ echo "Changing username in the service files........"
 echo ""
 sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/stremio-client.service
 sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/stremio-server.service
+echo ""
+echo "Creating desktop shortcuts for starting client ............."
+echo ""
+sudo chmod +x ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh
+sudo chmod +x ${GIT_DIR}/src/client-launcher.sh
+sudo \cp ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh /home/${USER}/Desktop/Stremio-Client-Service-Shortcut
+sudo \cp ${GIT_DIR}/src/client-launcher.sh /home/${USER}/Desktop/Stremio-Client-Launcher-Shortcut
 echo ""
 echo "Finished installing. Sit back and enjoy the show............."
