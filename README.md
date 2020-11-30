@@ -45,6 +45,6 @@ sudo systemctl start stremio-server.service
 sudo systemctl start stremio-client.service  
 ```    
 
-.. note::
+### Note     
  - If you have enabled the Client Service and exited the browser, use the Client-Service shorcut to restart the client service.   
  - If you did not enable the Client Service, use the Client-Launcher shortcut to start the client again.    
