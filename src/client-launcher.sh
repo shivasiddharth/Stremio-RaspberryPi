@@ -6,4 +6,4 @@
 
 
 # Run Chromium and open tabs
-/usr/bin/chromium-browser --app=https://app.strem.io/shell-v4.4/ --window-position=0,0 --start-fullscreen
+/usr/bin/chromium-browser --app=https://app.strem.io/shell-v4.4/ --window-position=0,0 --start-fullscreen --use-gl=egl     
