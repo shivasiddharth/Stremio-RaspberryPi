@@ -45,6 +45,14 @@ sudo systemctl start stremio-server.service
 sudo systemctl start stremio-client.service  
 ```    
 
+### Fix for screen tearing    
+Open a terminal and run   
+```    
+sudo raspi-config     
+```   
+In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition manager -> Choose “No”     
+
+
 ### Note     
  - If you have enabled the Client Service and exited the browser, use the Client-Service shorcut to restart the client service.   
  - If you did not enable the Client Service, use the Client-Launcher shortcut to start the client again.    
