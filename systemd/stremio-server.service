@@ -1,8 +1,8 @@
 [Unit]
 Description=Stremio Media Server
 PartOf=graphical-session.target
-Wants=network-online.target graphical.target
-After=network.target network-online.target graphical.target
+Wants=multi-user.target
+After=multi-user.target
 
 [Service]
 Environment=PATH=/home/__USER__/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
