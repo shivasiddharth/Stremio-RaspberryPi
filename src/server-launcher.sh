@@ -5,4 +5,5 @@
 # Written by https://github.com/shivasiddharth
 
 # Start the server
-node /home/pi/Stremio-RaspberryPi/stremio-shell/server.js
+cd /home/pi/Stremio-RaspberryPi/stremio-shell/
+node ./server.js
