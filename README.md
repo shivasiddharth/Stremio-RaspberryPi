@@ -33,7 +33,7 @@ Open second terminal and run
 ```    
 
 ###  After verification if desired, set Stremio to auto start on boot     
-There will be a minor delay between the launch of Server Service and Client Service. This is to ensure that the Client starts after the Server.    
+There will be a minor delay ~1Min between the launch of Server Service and Client Service. This is to ensure that the Client starts after the Server.    
 Run the service installer  
 ```   
 sudo /home/${USER}/Stremio-RaspberryPi/scripts/service-installer.sh        
@@ -58,3 +58,4 @@ In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition mana
 ### Note     
  - If you have closed or stopped the background Stremio services, then if you wish to start them again, you can use the service desktop shortcuts.    
  - You can manually start the Stremio server and client using the Stremio Launcher desktop shortcuts.     
+ - If your cursor is stuck after running ```systemctl --user start stremio-server.service```, press Ctrl+C on keyboard to break free.   
