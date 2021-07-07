@@ -6,8 +6,6 @@
 
 echo ""
 echo ""
-echo "Get your popcorn while we prep your Pi......"
-echo ""
 set -o errexit
 
 scripts_dir="$(dirname "${BASH_SOURCE[0]}")"
@@ -20,7 +18,9 @@ then
     echo "This script must run as $RUN_AS, trying to change user..."
     exec sudo -u $RUN_AS $0
 fi
-
+echo "Get your popcorn while we prep your Pi......"
+echo ""
+echo ""
 echo "Updating the OS......."
 echo ""
 sudo apt-get update -y
