@@ -58,7 +58,6 @@ In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition mana
    1. DO NOT set the Stremio Server and Client to auto start on boot.
    2. Use the shortcuts on the Desktop or the commands given above to manually launch the Service and Client.
    3. Always launch the Server first and after a couple of seconds, launch the Client.     
-
  - If you have enabled the Client Service and exited the Stremio interface in the browser, open a terminal and run ```sudo systemctl restart stremio-client.service```.   
-
- - If you did not enable the Client Service and exited the Stremio interface in the browser, use the Client-Launcher shortcut on the Desktop to start the client again.     
+ - If you did not enable the Client Service and exited the Stremio interface in the browser, use the Client-Launcher shortcut on the Desktop to start the client again.    
+ - If you are using Stremio server for remote access i.e, to use it from iPad, iPhone, Android Devices, etc, you can have the server set to auto start on boot.     
