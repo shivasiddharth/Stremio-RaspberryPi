@@ -6,8 +6,6 @@
 
 echo ""
 echo ""
-echo "Get your popcorn while we prep your Pi......"
-echo ""
 set -o errexit
 
 scripts_dir="$(dirname "${BASH_SOURCE[0]}")"
@@ -20,7 +18,9 @@ then
     echo "This script must run as $RUN_AS, trying to change user..."
     exec sudo -u $RUN_AS $0
 fi
-
+echo "Get your popcorn while we prep your Pi......"
+echo ""
+echo ""
 echo "Updating the OS......."
 echo ""
 sudo apt-get update -y
@@ -36,12 +36,17 @@ echo ""
 sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/stremio-client.service
 sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/stremio-server.service
 echo ""
-echo "Creating desktop shortcuts for starting client ............."
+echo "Creating desktop shortcuts ............."
 echo ""
 echo ""
+sudo chmod +x ${GIT_DIR}/scripts/Stremio-Server-Service-Shortcut.sh
+sudo chmod +x ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh
 sudo chmod +x ${GIT_DIR}/src/client-launcher.sh
-sudo \cp ${GIT_DIR}/src/server-launcher.sh /home/${USER}/Desktop/Stremio-Server-Launcher-Shortcut
-sudo \cp ${GIT_DIR}/src/client-launcher.sh /home/${USER}/Desktop/Stremio-Client-Launcher-Shortcut
+sudo chmod +x ${GIT_DIR}/src/server-launcher.sh
+sudo \cp ${GIT_DIR}/scripts/Stremio-Server-Service-Shortcut.sh /home/${USER}/Desktop/Stremio-Server-Service
+sudo \cp ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh /home/${USER}/Desktop/Stremio-Client-Service
+sudo \cp ${GIT_DIR}/src/server-launcher.sh /home/${USER}/Desktop/Stremio-Server-Launcher
+sudo \cp ${GIT_DIR}/src/client-launcher.sh /home/${USER}/Desktop/Stremio-Client-Launcher
 echo ""
 echo ""
 echo "Finished installing. Sit back and enjoy the show............."

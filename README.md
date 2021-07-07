@@ -1,4 +1,5 @@
 # Stremio-RaspberryPi    
+### **If you like the work and if you would like to get me a :coffee: :smile:** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GH3YDCHZ36QN)    
 
 ## Steps to run Stremio in Raspberry Pi   
 
@@ -20,7 +21,7 @@ sudo chmod +x /home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh
 sudo /home/${USER}/Stremio-RaspberryPi/scripts/installer.sh
 ```   
 
-###  After the installation, try opening the Stremio server and client manually using the following   
+###  After the installation, try opening the Stremio server and client manually using the following commands or use the Launcher Shortcuts created on the desktop      
 Open first terminal and run    
 ```   
 /home/${USER}/Stremio-RaspberryPi/src/server-launcher.sh  
@@ -31,7 +32,8 @@ Open second terminal and run
 /home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh  
 ```    
 
-###  After verification if desired, set Stremio to auto start on boot (VLC controls do not work on auto start)   
+###  After verification if desired, set Stremio to auto start on boot     
+There will be a minor delay ~1Min between the launch of Server Service and Client Service. This is to ensure that the Client starts after the Server.    
 Run the service installer  
 ```   
 sudo /home/${USER}/Stremio-RaspberryPi/scripts/service-installer.sh        
@@ -39,10 +41,10 @@ sudo /home/${USER}/Stremio-RaspberryPi/scripts/service-installer.sh
 
 Enable and start the service   
 ```   
-sudo systemctl enable stremio-server.service   
-sudo systemctl enable stremio-client.service   
-sudo systemctl start stremio-server.service   
-sudo systemctl start stremio-client.service  
+systemctl --user enable stremio-server.service
+systemctl --user enable stremio-client.service
+systemctl --user start stremio-server.service
+systemctl --user start stremio-client.service
 ```    
 
 ### Fix for screen tearing    
@@ -54,10 +56,6 @@ In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition mana
 
 
 ### Note     
- - If you want to play videos using VLC:      
-   1. DO NOT set the Stremio Server and Client to auto start on boot.
-   2. Use the shortcuts on the Desktop or the commands given above to manually launch the Service and Client.
-   3. Always launch the Server first and after a couple of seconds, launch the Client.     
- - If you have enabled the Client Service and exited the Stremio interface in the browser, open a terminal and run ```sudo systemctl restart stremio-client.service```.   
- - If you did not enable the Client Service and exited the Stremio interface in the browser, use the Client-Launcher shortcut on the Desktop to start the client again.    
- - If you are using Stremio server for remote access i.e, to use it from iPad, iPhone, Android Devices, etc, you can have the server set to auto start on boot.     
+ - If you have closed or stopped the background Stremio services, then if you wish to start them again, you can use the service desktop shortcuts.    
+ - You can manually start the Stremio server and client using the Stremio Launcher desktop shortcuts.     
+ - If your cursor is stuck after running ```systemctl --user start stremio-server.service```, press Ctrl+C on keyboard to break free.   

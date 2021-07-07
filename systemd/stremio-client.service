@@ -1,19 +1,14 @@
 [Unit]
 Description=Stremio Media Client
-PartOf=graphical-session.target
-Wants=stremio-server.service graphical.target
-After=stremio-server.service graphical.target
+Wants=stremio-server.service network-online.target graphical.target
+After=stremio-server.service network-online.target graphical.target
 
 [Service]
+Type=forking
 Environment=DISPLAY=:0.0
 Environment=XAUTHORITY=/home/__USER__/.Xauthority
-ExecStart=/home/__USER__/Stremio-RaspberryPi/src/client-launcher.sh
+ExecStart=/usr/bin/bash /home/__USER__/Stremio-RaspberryPi/src/client-launcher.sh
 
-WorkingDirectory=/home/__USER__/
-StandardOutput=inherit
-StandardError=inherit
-Restart=on-failure
-User=__USER__
 
 [Install]
-WantedBy=graphical.target
+WantedBy=default.target
