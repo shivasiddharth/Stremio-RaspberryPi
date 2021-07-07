@@ -23,5 +23,5 @@ repo_path="$PWD"
 
 for service in systemd/*.service; do
 	sed "s:/home/__USER__/Stremio-RaspberryPi:${repo_path}:g;s:__USER__:${GIT_OWNER}:g" "$service" \
-	 > "/lib/systemd/system/$(basename "$service")"
+	 > "/etc/systemd/user/$(basename "$service")"
 done
