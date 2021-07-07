@@ -38,9 +38,10 @@ sed -i 's/__USER__/'${USER}'/g' ${GIT_DIR}/systemd/stremio-server.service
 echo ""
 echo "Creating desktop shortcuts for starting client ............."
 echo ""
-sudo chmod +x ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh
+echo ""
 sudo chmod +x ${GIT_DIR}/src/client-launcher.sh
-sudo \cp ${GIT_DIR}/scripts/Stremio-Client-Service-Shortcut.sh /home/${USER}/Desktop/Stremio-Client-Service-Shortcut
+sudo \cp ${GIT_DIR}/src/server-launcher.sh /home/${USER}/Desktop/Stremio-Server-Launcher-Shortcut
 sudo \cp ${GIT_DIR}/src/client-launcher.sh /home/${USER}/Desktop/Stremio-Client-Launcher-Shortcut
+echo ""
 echo ""
 echo "Finished installing. Sit back and enjoy the show............."
