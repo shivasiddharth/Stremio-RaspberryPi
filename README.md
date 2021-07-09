@@ -60,3 +60,4 @@ In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition mana
  - If you have closed or stopped the background Stremio services, then if you wish to start them again, you can use the service desktop shortcuts.    
  - You can manually start the Stremio server and client using the Stremio Launcher desktop shortcuts.     
  - If your cursor is stuck after running ```systemctl --user start stremio-server.service```, press Ctrl+C on keyboard to break free.   
+ - You can access Stremio on Apple iPads and iPhones with the server running on Raspberry Pi. Refer to https://www.youtube.com/watch?v=cYmpVh_GWJg     
