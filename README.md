@@ -6,7 +6,7 @@
 
 
 
-                                              
+
 **********        
 ## Installation Using Binaries           
 **********      
@@ -15,16 +15,16 @@
 3.  Add Debian sources as given below:    
     Buster Users:   
     ```      
-    echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list    
-    echo "deb http://deb.debian.org/debian buster main contrib non-free" >> /etc/apt/sources.list    
+    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
+    sudo sh -c "deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
     sudo apt-get update     
     ```      
     Bullseye Users:   
     ```      
-    echo "deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list    
-    echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> /etc/apt/sources.list    
+    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free' >> /etc/apt/sources.list"    
+    sudo sh -c "echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list"    
     sudo apt-get update     
-    ```      
+    ```     
 4.  Change directory as given below (Replace x.x.xxx with the version numbers on the file):    
     64-Bit Users:    
     ```    
@@ -53,16 +53,16 @@
 1.  Add Debian sources as given below:    
     Buster Users:   
     ```      
-    echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list    
-    echo "deb http://deb.debian.org/debian buster main contrib non-free" >> /etc/apt/sources.list    
+    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
+    sudo sh -c "deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
     sudo apt-get update     
     ```      
     Bullseye Users:   
     ```      
-    echo "deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list    
-    echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> /etc/apt/sources.list    
+    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free' >> /etc/apt/sources.list"    
+    sudo sh -c "echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list"    
     sudo apt-get update     
-    ```    
+    ```   
 2.  Clone the stremio-shell using:   
     ```   
     git clone --recurse-submodules -j8 git://github.com/shivasiddharth/stremio-shell.git      
