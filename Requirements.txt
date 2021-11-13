@@ -1,6 +1,8 @@
 qtcreator
 qt5-qmake
-qt5-default
+qtbase5-dev 
+qtchooser 
+qtbase5-dev-tools
 g++
 pkgconf
 libssl-dev
