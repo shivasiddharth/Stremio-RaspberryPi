@@ -16,7 +16,7 @@
     Buster Users:   
     ```      
     sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
-    sudo sh -c "deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
+    sudo sh -c "echo 'deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
     sudo apt-get update     
     ```      
     Bullseye Users:   
@@ -54,7 +54,7 @@
     Buster Users:   
     ```      
     sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
-    sudo sh -c "deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
+    sudo sh -c "echo 'deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
     sudo apt-get update     
     ```      
     Bullseye Users:   
