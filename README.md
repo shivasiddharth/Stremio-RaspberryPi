@@ -42,7 +42,8 @@
     sudo apt-get install ./libfdk-aac1_0.1.6-1_armhf.deb ./stremio_x.x.xxx-1_armhf.deb -f   
     ```   
 6.  Now you should have Stremio installed. Grab some snacks and enjoy the show.       
-___
+<br/>   
+<br/>    
 **********    
 ##  Building from source      
 **********      
@@ -91,7 +92,8 @@ ___
     ```    
     /home/${USER}/stremio-shell/build/stremio   
     ```     
-___
+<br/>   
+<br/>    
 **********     
 ## Note     
 **********        
