@@ -4,7 +4,7 @@
 ## **If you like the work and if you would like to get me a :coffee: :smile:** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GH3YDCHZ36QN)  
 
 
-
+<br>    
 **********        
 ## Installation Using Binaries           
 **********      
@@ -42,8 +42,8 @@
     sudo apt-get install ./libfdk-aac1_0.1.6-1_armhf.deb ./stremio_x.x.xxx-1_armhf.deb -f   
     ```   
 6.  Now you should have Stremio installed. Grab some snacks and enjoy the show.       
-<br/>   
 <br/>    
+<br>    
 **********    
 ##  Building from source      
 **********      
@@ -92,8 +92,8 @@
     ```    
     /home/${USER}/stremio-shell/build/stremio   
     ```     
-<br/>   
-<br/>    
+<br/>     
+<br>   
 **********     
 ## Note     
 **********        
@@ -107,3 +107,4 @@
     ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Remote-connection.png)      
 3.  For accessing the Stremio server remotely and securely (Expecially from Apple devices), use the **Streaming HTTPS endpoint:** link as shown below.   
     ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Streaming-Server-Link.png)  
+<br/>    
