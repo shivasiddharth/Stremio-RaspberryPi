@@ -25,14 +25,14 @@
     echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> /etc/apt/sources.list    
     sudo apt-get update     
     ```      
-4.  Change directory as given below:    
+4.  Change directory as given below (Replace x.x.xxx with the version numbers on the file):    
     64-Bit Users:    
     ```    
-    cd /home/${USER}/Stremio-4.4.142-arm64-64-bit/   
+    cd /home/${USER}/Stremio-x.x.xxx-arm64-64-bit/   
     ```   
     32-Bit Users:    
     ```    
-    cd /home/${USER}/Stremio-4.4.142-armhf-32-bit/  
+    cd /home/${USER}/Stremio-x.x.xxx-armhf-32-bit/  
     ```
 5.  Perform the installation as given below (Replace x.x.xxx with the version numbers on the file):    
     64-Bit Users:    
