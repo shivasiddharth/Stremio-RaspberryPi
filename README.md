@@ -1,68 +1,103 @@
-![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Banner.jpg)
-
+# Stremio-RaspberryPi
+![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Banner.jpg)     
 
 ## **If you like the work and if you would like to get me a :coffee: :smile:** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GH3YDCHZ36QN)  
 
 
-
-# Stremio-RaspberryPi    
-
-## Steps to run Stremio in Raspberry Pi   
-
-###  Clone the git project    
-```   
-git clone https://github.com/shivasiddharth/Stremio-RaspberryPi
-```   
-
-###  Make the scripts executable  
-```
-sudo chmod +x /home/${USER}/Stremio-RaspberryPi/scripts/installer.sh  
-sudo chmod +x /home/${USER}/Stremio-RaspberryPi/scripts/service-installer.sh    
-sudo chmod +x /home/${USER}/Stremio-RaspberryPi/src/server-launcher.sh    
-sudo chmod +x /home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh  
-```   
-
-###  Run the installer  
-```   
-sudo /home/${USER}/Stremio-RaspberryPi/scripts/installer.sh
-```   
-
-###  After the installation, try opening the Stremio server and client manually using the following commands or use the Launcher Shortcuts created on the desktop      
-Open first terminal and run    
-```   
-/home/${USER}/Stremio-RaspberryPi/src/server-launcher.sh  
-```    
-
-Open second terminal and run   
-```   
-/home/${USER}/Stremio-RaspberryPi/src/client-launcher.sh  
-```    
-
-###  After verification if desired, set Stremio to auto start on boot     
-There will be a minor delay ~1Min between the launch of Server Service and Client Service. This is to ensure that the Client starts after the Server.    
-Run the service installer  
-```   
-sudo /home/${USER}/Stremio-RaspberryPi/scripts/service-installer.sh        
-```   
-
-Enable and start the service   
-```   
-systemctl --user enable stremio-server.service
-systemctl --user enable stremio-client.service
-systemctl --user start stremio-server.service
-systemctl --user start stremio-client.service
-```    
-
-### Fix for screen tearing    
-Open a terminal and run   
-```    
-sudo raspi-config     
-```   
-In that, Navigate to Advanced Options -> Compositor -> xcompmgr composition manager -> Choose “No”     
+## Installation Using Binaries             
+1.  Download the Zip files containing the binaries from the Releases section.      
+2.  Place it in the /home/${USER}/ directory.    
+3.  Add Debian sources as given below:    
+    Buster Users:   
+    ```      
+    echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list    
+    echo "deb http://deb.debian.org/debian buster main contrib non-free" >> /etc/apt/sources.list    
+    sudo apt-get update     
+    ```      
+    Bullseye Users:   
+    ```      
+    echo "deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list    
+    echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> /etc/apt/sources.list    
+    sudo apt-get update     
+    ```      
+4.  Change directory as given below:    
+    64-Bit Users:    
+    ```    
+    cd /home/${USER}/Stremio-4.4.142-arm64-64-bit/   
+    ```   
+    32-Bit Users:    
+    ```    
+    cd /home/${USER}/Stremio-4.4.142-armhf-32-bit/  
+    ```
+5.  Perform the installation as given below (Replace x.x.xxx with the version numbers on the file):    
+    64-Bit Users:    
+    ```    
+    sudo apt-get install ./libfdk-aac1_0.1.6-1_arm64.deb ./stremio_x.x.xxx-1_arm64.deb -f   
+    ```   
+    32-Bit Users:    
+    ```    
+    sudo apt-get install ./libfdk-aac1_0.1.6-1_armhf.deb ./stremio_x.x.xxx-1_armhf.deb -f   
+    ```   
+6.  Now you should have Stremio installed. Grab some snacks and enjoy the show.       
 
 
-### Note     
- - If you have closed or stopped the background Stremio services, then if you wish to start them again, you can use the service desktop shortcuts.    
- - You can manually start the Stremio server and client using the Stremio Launcher desktop shortcuts.     
- - If your cursor is stuck after running ```systemctl --user start stremio-server.service```, press Ctrl+C on keyboard to break free.   
- - You can access Stremio on Apple iPads and iPhones with the server running on Raspberry Pi. Refer to https://www.youtube.com/watch?v=cYmpVh_GWJg     
+##  Building from source      
+1.  Add Debian sources as given below:    
+    Buster Users:   
+    ```      
+    echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list    
+    echo "deb http://deb.debian.org/debian buster main contrib non-free" >> /etc/apt/sources.list    
+    sudo apt-get update     
+    ```      
+    Bullseye Users:   
+    ```      
+    echo "deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list    
+    echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> /etc/apt/sources.list    
+    sudo apt-get update     
+    ```    
+2.  Clone the stremio-shell using:   
+    ```   
+    git clone --recurse-submodules -j8 git://github.com/shivasiddharth/stremio-shell.git      
+    ```   
+3.  Change directory using:    
+    ```   
+    cd /home/${USER}/stremio-shell/             
+    ```
+4.  Install dependencies using:     
+    ```    
+    sed 's/#.*//' ./Requirements.txt | xargs sudo apt-get install -y    
+    ```     
+5.  Make using:   
+    ```   
+    qmake    
+    ```    
+6.  Build binaries using:   
+    ```    
+    make -f release.makefile    
+    ```    
+7.  Prepare server using:    
+    ```    
+    cp ./server.js ./build/ && ln -s "$(which node)" ./build/node     
+    ```   
+8.  Run Stremio using:   
+    ```   
+    ./build/stremio    
+    ```    
+    or   
+    ```    
+    /home/${USER}/stremio-shell/build/stremio   
+    ```     
+
+
+## Note     
+1.  After the ```sudo apt-get update``` command for adding sources, if you get a key error like shown below:   
+    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Key_Error.png)       
+    Fix the issue using (Replace XXXXXXXXXXXX with the first alphanumeric character key):    
+    ```    
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys XXXXXXXXXXXX     
+    ```      
+2.  For remote access of server, go into setting and select your IP address from the **Enable remote HTTPS connections** dropdown menu as shown below.    
+    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Remote-connection.png)      
+3.  For accessing the Stremio server remotely and securely (Expecially from Apple devices), use the **Streaming HTTPS endpoint:** link as shown below.   
+    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Streaming-Server-Link.png)  
+  
