@@ -10,8 +10,8 @@
 **********        
 ## Installation Using Binaries           
 **********      
-1.  Download the Zip files containing the binaries from the Releases section.      
-2.  Place it in the /home/${USER}/ directory.    
+1.  Download the Zip file containing the binaries from the Releases section.      
+2.  Place it in the /home/${USER}/ directory and unzip the file.    
 3.  Add Debian sources as given below:    
     Buster Users:   
     ```      
