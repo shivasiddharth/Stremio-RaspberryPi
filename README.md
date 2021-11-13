@@ -5,8 +5,9 @@
 
 
 
-
-## Installation Using Binaries             
+**********        
+## Installation Using Binaries           
+**********      
 1.  Download the Zip files containing the binaries from the Releases section.      
 2.  Place it in the /home/${USER}/ directory.    
 3.  Add Debian sources as given below:    
@@ -41,12 +42,10 @@
     sudo apt-get install ./libfdk-aac1_0.1.6-1_armhf.deb ./stremio_x.x.xxx-1_armhf.deb -f   
     ```   
 6.  Now you should have Stremio installed. Grab some snacks and enjoy the show.       
-
-
-
-
-
+___
+**********    
 ##  Building from source      
+**********      
 1.  Add Debian sources as given below:    
     Buster Users:   
     ```      
@@ -92,12 +91,10 @@
     ```    
     /home/${USER}/stremio-shell/build/stremio   
     ```     
-
-
-
-
-
+___
+**********     
 ## Note     
+**********        
 1.  After the ```sudo apt-get update``` command for adding sources, if you get a key error like shown below:   
     ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Key_Error.png)       
     Fix the issue using (Replace XXXXXXXXXXXX with the first alphanumeric character key):    
