@@ -65,7 +65,7 @@
     ```   
 2.  Clone the stremio-shell using:   
     ```   
-    git clone --recurse-submodules -j8 git://github.com/shivasiddharth/stremio-shell.git      
+    git clone --recurse-submodules -j8 https://github.com/shivasiddharth/stremio-shell.git      
     ```   
 3.  Change directory using:    
     ```   
