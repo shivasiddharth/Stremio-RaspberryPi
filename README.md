@@ -8,7 +8,7 @@
 
 
 **********        
-## Installation Using Binaries           
+## Installation Using Binaries (Only Buster and Bullseye)               
 **********      
 1.  Download the Zip file containing the binaries from the Releases section.      
 2.  Place it in the /home/${USER}/ directory and unzip the file.    
@@ -48,7 +48,7 @@
 
 
 **********    
-##  Building from source      
+##  Building from source (Only 32 Bit)          
 **********      
 1.  Add Debian sources as given below:    
     Buster Users:   
@@ -61,6 +61,12 @@
     ```      
     sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free' >> /etc/apt/sources.list"    
     sudo sh -c "echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list"    
+    sudo apt-get update     
+    ```   
+    Bookworm Users:   
+    ```      
+    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bookworm main contrib non-free' >> /etc/apt/sources.list"    
+    sudo sh -c "echo 'deb http://deb.debian.org/debian bookworm main contrib non-free' >> /etc/apt/sources.list"    
     sudo apt-get update     
     ```   
 2.  Clone the stremio-shell using:   
