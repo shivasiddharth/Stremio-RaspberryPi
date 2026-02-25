@@ -51,7 +51,7 @@ bash stremio_server_setup.sh
 This will:
 - Detect your architecture (ARM64/ARM32/x86_64)
 - Install required packages
-- Install Rust
+- Install Rust (press Enter when prompted)
 - Clone and build the Stremio server
 - Generate SSL certificates
 
