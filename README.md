@@ -45,7 +45,7 @@ npm install
 ### 4. Set up Stremio Server
 
 ```bash
-sudo bash stremio_server_setup.sh
+bash stremio_server_setup.sh
 ```
 
 This will:
