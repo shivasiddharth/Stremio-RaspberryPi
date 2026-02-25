@@ -1,119 +1,101 @@
-# Stremio-RaspberryPi
-![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Banner.jpg)     
+# Stremio
+
+Desktop application for Stremio server.
+
+![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Banner.jpg)
 
 ## **If you like the work and if you would like to get me a :coffee: :smile:** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GH3YDCHZ36QN)  
 
+## Contents
 
+| File | Description |
+|------|-------------|
+| `main.js` | Electron main process |
+| `package.json` | Node.js dependencies |
+| `stremio_server_setup.sh` | Installs and builds Stremio server |
+| `stremio-service-systemd-installer.sh` | Sets up auto-start on boot |
+| `stremio.desktop` | Desktop launcher for Pi menu |
+| `install-desktop-launcher.sh` | Installs the desktop launcher |
+| `icon.png` | Application icon |
 
+## Installation
 
+### 1. Clone the Repository
 
-**********        
-## Installation Using Binaries (Only Buster and Bullseye)               
-**********      
-1.  Download the Zip file containing the binaries from the Releases section.      
-2.  Place it in the /home/${USER}/ directory and unzip the file.    
-3.  Add Debian sources as given below:    
-    Buster Users:   
-    ```      
-    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
-    sudo sh -c "echo 'deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
-    sudo apt-get update     
-    ```      
-    Bullseye Users:   
-    ```      
-    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free' >> /etc/apt/sources.list"    
-    sudo sh -c "echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list"    
-    sudo apt-get update     
-    ```     
-4.  Change directory as given below (Replace x.x.xxx with the version numbers on the file):    
-    64-Bit Users:    
-    ```    
-    cd /home/${USER}/Stremio-x.x.xxx-arm64-64-bit/   
-    ```   
-    32-Bit Users:    
-    ```    
-    cd /home/${USER}/Stremio-x.x.xxx-armhf-32-bit/  
-    ```
-5.  Perform the installation as given below (Replace x.x.xxx with the version numbers on the file):    
-    64-Bit Users:    
-    ```    
-    sudo apt-get install ./libfdk-aac1_0.1.6-1_arm64.deb ./stremio_x.x.xxx-1_arm64.deb -f   
-    ```   
-    32-Bit Users:    
-    ```    
-    sudo apt-get install ./libfdk-aac1_0.1.6-1_armhf.deb ./stremio_x.x.xxx-1_armhf.deb -f   
-    ```   
-6.  Now you should have Stremio installed. Grab some snacks and enjoy the show.       
+```bash
+git clone https://github.com/shivasiddharth/Stremio-RaspberryPi.git
+cd Stremio-RaspberryPi
+```
 
+### 2. Install Node.js and npm
 
+If Node.js and npm are not installed, install them first:
 
-**********    
-##  Building from source (Only 32 Bit)          
-**********      
-1.  Add Debian sources as given below:    
-    Buster Users:   
-    ```      
-    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free' >> /etc/apt/sources.list"   
-    sudo sh -c "echo 'deb http://deb.debian.org/debian buster main contrib non-free' >> /etc/apt/sources.list"     
-    sudo apt-get update     
-    ```      
-    Bullseye Users:   
-    ```      
-    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bullseye main contrib non-free' >> /etc/apt/sources.list"    
-    sudo sh -c "echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> /etc/apt/sources.list"    
-    sudo apt-get update     
-    ```   
-    Bookworm Users:   
-    ```      
-    sudo sh -c "echo 'deb http://ftp.us.debian.org/debian/ bookworm main contrib non-free' >> /etc/apt/sources.list"    
-    sudo sh -c "echo 'deb http://deb.debian.org/debian bookworm main contrib non-free' >> /etc/apt/sources.list"    
-    sudo apt-get update     
-    ```   
-2.  Clone the stremio-shell using:   
-    ```   
-    git clone --recurse-submodules -j8 https://github.com/shivasiddharth/stremio-shell.git      
-    ```   
-3.  Change directory using:    
-    ```   
-    cd /home/${USER}/stremio-shell/             
-    ```
-4.  Install dependencies using:     
-    ```    
-    sed 's/#.*//' ./Requirements.txt | xargs sudo apt-get install -y    
-    ```     
-5.  Make using:   
-    ```   
-    qmake    
-    ```    
-6.  Build binaries using:   
-    ```    
-    make -f release.makefile    
-    ```    
-7.  Prepare server using:    
-    ```    
-    cp ./server.js ./build/ && ln -s "$(which node)" ./build/node     
-    ```   
-8.  Run Stremio using:   
-    ```   
-    ./build/stremio    
-    ```    
-    or   
-    ```    
-    /home/${USER}/stremio-shell/build/stremio   
-    ```     
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
+### 2. Install Electron dependencies
 
+```bash
+npm install
+```
 
-**********     
-## Note     
-**********        
-1.  After the ```sudo apt-get update``` command for adding sources, if you get a key error like shown below:   
-    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Key_Error.png)       
-    Fix the issue using (Replace XXXXXXXXXXXX with the first alphanumeric character key):    
-    ```    
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys XXXXXXXXXXXX     
-    ```      
-2.  For remote access of server, go into setting and select your IP address from the **Enable remote HTTPS connections** dropdown menu as shown below.    
-    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Remote-connection.png)      
-3.  For accessing the Stremio server remotely and securely (Expecially from Apple devices), use the **Streaming HTTPS endpoint:** link as shown below.   
-    ![github-small](https://github.com/shivasiddharth/Stremio-RaspberryPi/blob/Awesome/images/Streaming-Server-Link.png)  
+### 3. Set up Stremio Server
+
+```bash
+sudo bash stremio_server_setup.sh
+```
+
+This will:
+- Detect your architecture (ARM64/ARM32/x86_64)
+- Install required packages
+- Install Rust
+- Clone and build the Stremio server
+- Generate SSL certificates
+
+### 4. Set up Auto-start on Boot
+
+```bash
+sudo bash stremio-service-systemd-installer.sh
+```
+
+### 5. Install Desktop Launcher
+
+```bash
+bash install-desktop-launcher.sh
+```
+
+### 6. Reboot
+
+```bash
+sudo reboot
+```
+
+## Running
+
+After reboot:
+- The server starts automatically
+- Launch "Stremio" from your application menu (Pi menu)
+
+Or manually:
+```bash
+npm start
+```
+
+## Accessing from Other Devices
+
+To access the Stremio server from other devices on your network, use:
+
+```
+https://<IP_ADDRESS_OF_PI>:12470
+```
+
+**Important:** The SSL certificates are self-generated. When accessing from other devices, you will need to accept the security warning in your browser. This is normal behavior for self-signed certificates.
+
+## Notes
+
+- Server runs on `https://localhost:11470`
+- For remote access from other devices, use `https://<device-ip>:12470`
+- The SSL certificate is self-signed - accept the security warning in your browser
