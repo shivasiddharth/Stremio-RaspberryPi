@@ -16,6 +16,7 @@ Desktop application for Stremio server.
 | `stremio-service-systemd-installer.sh` | Sets up auto-start on boot |
 | `stremio.desktop` | Desktop launcher for Pi menu |
 | `install-desktop-launcher.sh` | Installs the desktop launcher |
+| `uninstall.sh` | Uninstaller |
 | `icon.png` | Application icon |
 
 ## Installation
@@ -101,3 +102,16 @@ https://<IP_ADDRESS_OF_PI>:12470
 - Server runs on `https://localhost:11470`
 - For remote access from other devices, use `https://<device-ip>:12470`
 - The SSL certificate is self-signed - accept the security warning in your browser
+
+## Uninstallation
+
+To uninstall Stremio:
+
+```bash
+bash uninstall.sh
+```
+
+This will:
+- Stop and disable the systemd service
+- Remove the systemd service file
+- Remove the desktop launcher

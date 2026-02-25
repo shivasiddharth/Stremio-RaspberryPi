@@ -16,6 +16,9 @@ mkdir -p "$INSTALL_DIR"
 # Copy the .desktop file to the applications directory
 cp "$DESKTOP_FILE" "$INSTALL_DIR/"
 
+# Fix line endings (remove CRLF)
+sed -i 's/\r$//' "$INSTALL_DIR/stremio.desktop"
+
 # Make it executable
 chmod +x "$INSTALL_DIR/stremio.desktop"
 
