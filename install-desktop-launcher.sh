@@ -7,17 +7,24 @@ else
   CURRENT_USER=$(whoami)
 fi
 
-DESKTOP_FILE="/home/$CURRENT_USER/stremio/stremio.desktop"
 INSTALL_DIR="/home/$CURRENT_USER/.local/share/applications"
 
 # Create the applications directory if it doesn't exist
 mkdir -p "$INSTALL_DIR"
 
-# Copy the .desktop file to the applications directory
-cp "$DESKTOP_FILE" "$INSTALL_DIR/"
-
-# Fix line endings (remove CRLF)
-sed -i 's/\r$//' "$INSTALL_DIR/stremio.desktop"
+# Create the .desktop file directly (avoids line ending issues)
+cat > "$INSTALL_DIR/stremio.desktop" << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Stremio
+Comment=Stremio Desktop Application
+Exec=/home/$CURRENT_USER/stremio/node_modules/.bin/electron /home/$CURRENT_USER/stremio/main.js
+Icon=/home/$CURRENT_USER/stremio/icon.png
+Terminal=false
+Categories=AudioVideo;Video;Player;
+StartupNotify=true
+EOF
 
 # Make it executable
 chmod +x "$INSTALL_DIR/stremio.desktop"

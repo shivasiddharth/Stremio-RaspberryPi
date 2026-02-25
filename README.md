@@ -14,7 +14,6 @@ Desktop application for Stremio server.
 | `package.json` | Node.js dependencies |
 | `stremio_server_setup.sh` | Installs and builds Stremio server |
 | `stremio-service-systemd-installer.sh` | Sets up auto-start on boot |
-| `stremio.desktop` | Desktop launcher for Pi menu |
 | `install-desktop-launcher.sh` | Installs the desktop launcher |
 | `uninstall.sh` | Uninstaller |
 | `icon.png` | Application icon |
@@ -37,13 +36,7 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-### 3. Install Electron dependencies
-
-```bash
-npm install
-```
-
-### 4. Set up Stremio Server
+### 3. Set up Stremio Server
 
 ```bash
 bash stremio_server_setup.sh
@@ -55,8 +48,10 @@ This will:
 - Install Rust (press Enter when prompted)
 - Clone and build the Stremio server
 - Generate SSL certificates
+- Copy application files
+- Install Electron dependencies
 
-### 5. Set up Auto-start on Boot
+### 4. Set up Auto-start on Boot
 
 ```bash
 sudo bash stremio-service-systemd-installer.sh
@@ -64,13 +59,13 @@ sudo bash stremio-service-systemd-installer.sh
 
 This requires sudo as it installs a systemd service.
 
-### 6. Install Desktop Launcher
+### 5. Install Desktop Launcher
 
 ```bash
 bash install-desktop-launcher.sh
 ```
 
-### 7. Reboot
+### 6. Reboot
 
 ```bash
 sudo reboot
@@ -84,7 +79,7 @@ After reboot:
 
 Or manually:
 ```bash
-npm start
+cd ~/stremio && npm start
 ```
 
 ## Accessing from Other Devices

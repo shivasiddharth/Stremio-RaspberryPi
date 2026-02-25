@@ -84,6 +84,10 @@ echo "Replacement complete in $file."
 
 echo "Copying application files..."
 cd "$scripts_dir"
-cp main.js package.json icon.png stremio.desktop /home/${USER}/stremio/
+cp main.js package.json icon.png /home/${USER}/stremio/
+
+echo "Installing Electron dependencies..."
+cd /home/${USER}/stremio
+npm install
 
 echo "Installation complete. Please Reboot."
