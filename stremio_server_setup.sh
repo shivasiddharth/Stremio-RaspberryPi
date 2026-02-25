@@ -1,6 +1,6 @@
 #!/bin/bash
 
-scripts_dir="$(dirname "${BASH_SOURCE[0]}")"
+scripts_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 RUN_AS="$(ls -ld "$scripts_dir" | awk 'NR==1 {print $3}')"
 
