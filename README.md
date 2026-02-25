@@ -36,13 +36,13 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-### 2. Install Electron dependencies
+### 3. Install Electron dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Set up Stremio Server
+### 4. Set up Stremio Server
 
 ```bash
 sudo bash stremio_server_setup.sh
@@ -55,19 +55,21 @@ This will:
 - Clone and build the Stremio server
 - Generate SSL certificates
 
-### 4. Set up Auto-start on Boot
+### 5. Set up Auto-start on Boot
 
 ```bash
 sudo bash stremio-service-systemd-installer.sh
 ```
 
-### 5. Install Desktop Launcher
+This requires sudo as it installs a systemd service.
+
+### 6. Install Desktop Launcher
 
 ```bash
 bash install-desktop-launcher.sh
 ```
 
-### 6. Reboot
+### 7. Reboot
 
 ```bash
 sudo reboot

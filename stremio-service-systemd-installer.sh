@@ -11,7 +11,7 @@ if [ "$SUDO_USER" ]; then
 else
   CURRENT_USER=$(whoami)
 fi
-WORKING_DIRECTORY="/home/$CURRENT_USER/stremio-service"
+WORKING_DIRECTORY="/home/$CURRENT_USER/stremio/stremio-service"
 EXEC_PATH="$NODE_PATH $WORKING_DIRECTORY/resources/bin/linux/server.js"
 
 # Check if Node.js is installed

@@ -41,8 +41,9 @@ sudo apt-get update
 sudo apt-get install git libssl-dev libglib2.0-dev libgtk-3-dev nodejs
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source /home/${USER}/.cargo/env
-git clone https://github.com/shivasiddharth/stremio-service.git
-cd stremio-service
+mkdir -p /home/${USER}/stremio
+git clone https://github.com/shivasiddharth/stremio-service.git /home/${USER}/stremio/stremio-service
+cd /home/${USER}/stremio/stremio-service
 rustup target add $TARGET
 cargo build --target $TARGET --release
 
@@ -56,13 +57,13 @@ fi
 echo "Build complete. Check the binary in target/$TARGET/release/"
 
 echo "Generating certificates..."
-cd /home/${USER}/stremio-service/resources/certificates
+cd /home/${USER}/stremio/stremio-service/resources/certificates
 openssl genpkey -algorithm RSA -out stremio.key -pkeyopt rsa_keygen_bits:2048
 openssl req -new -key stremio.key -out stremio.csr
 openssl x509 -req -days 9999 -in stremio.csr -signkey stremio.key -out stremio.cert
 
 # Define the file to be edited
-file="/home/${USER}/stremio-service/resources/bin/linux/server.js"
+file="/home/${USER}/stremio/stremio-service/resources/bin/linux/server.js"
 
 # Replace the line with the desired block of code
 sed -i "/var sserver = https.createServer(app);/c\
@@ -70,8 +71,8 @@ try {\n\
           var fs = require(\"fs\");\n\
           var https = require(\"https\");\n\
           _cr = {\n\
-            key: fs.readFileSync(\"/home/${USER}/stremio-service/resources/certificates/stremio.key\", \"utf8\"),\n\
-            cert: fs.readFileSync(\"/home/${USER}/stremio-service/resources/certificates/stremio.cert\", \"utf8\")\n\
+            key: fs.readFileSync(\"/home/${USER}/stremio/stremio-service/resources/certificates/stremio.key\", \"utf8\"),\n\
+            cert: fs.readFileSync(\"/home/${USER}/stremio/stremio-service/resources/certificates/stremio.cert\", \"utf8\")\n\
           };\n\
         } catch (e) {\n\
           console.error(\"Failed to load SSL cert:\", e);\n\
@@ -80,4 +81,9 @@ try {\n\
         var sserver = https.createServer(_cr, app);" "$file"
 
 echo "Replacement complete in $file."
+
+echo "Copying application files..."
+cd "$scripts_dir"
+cp main.js package.json icon.png stremio.desktop /home/${USER}/stremio/
+
 echo "Installation complete. Please Reboot."
